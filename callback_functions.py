@@ -4,7 +4,9 @@ from telegram import (
     InlineKeyboardButton,
 )
 from telegram.ext import CallbackContext
+from db import DB
 
+db = DB(file_name='db.json')
 
 
 def start(update: Update, context: CallbackContext) -> None:
@@ -25,18 +27,36 @@ def start(update: Update, context: CallbackContext) -> None:
     )
 
 def brands(update: Update, context: CallbackContext):
-    btn1= InlineKeyboardButton(text = "Oppo" , callback_data="Oppo")
-    btn2= InlineKeyboardButton(text =  "Xiaomi", callback_data="Xiaomi")
-    btn3= InlineKeyboardButton(text = "Redmi", callback_data="Redmi")
-    btn4= InlineKeyboardButton(text =  "Nokia",  callback_data="Nokia")
-    btn5= InlineKeyboardButton(text = "Vivo" , callback_data="Vivo")
-    btn6= InlineKeyboardButton(text =  "Huawei", callback_data="Huawei")
-    btn7= InlineKeyboardButton(text = "Samsung", callback_data="Samsung")
-    btn8= InlineKeyboardButton(text =  "Apple" , callback_data="Apple")
-    btn9= InlineKeyboardButton(text =  "Mi",  callback_data="Mi")
+    inline_keyboards = []
+    for brend in db.get_brends():
+        btn1 = InlineKeyboardButton(text=brend , callback_data=f"brend:{brend}")
+        inline_keyboards.append([btn1])
 
-    inline_key = [[btn1,btn2],[btn3,btn4],[btn5,btn6],[btn7,btn8],[btn9]]
     update.callback_query.message.reply_text(
         text = f"bizda mavjud brendlar quyidagilar ⏬",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_key)
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_keyboards)
     )
+
+def send_products(update: Update, context: CallbackContext):
+    brend = update.callback_query.data.split(":")[1]
+    products = db.get_phones_by_brend(brend)
+    inline_keyboards = []
+    for product in products:
+        btn1 = InlineKeyboardButton(text=product['name'] , callback_data=f"product:{product.doc_id}")
+        inline_keyboards.append([btn1])
+
+    update.callback_query.message.reply_text(
+        text = f"bizda {brend} brendiga tegishli mahsulotlar quyidagilar ⏬",
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_keyboards)
+    )
+
+def send_product_detail(update: Update, context: CallbackContext):
+    product_id = int(update.callback_query.data.split(":")[1])
+    product = db.get_phones_by_id(product_id)
+    update.callback_query.message.reply_photo(
+        photo=product['image'],
+        caption = f"bizda {product['name']} mahsuloti quyidagilar ⏬\n\nbrendi: {product['brend']}\nrang: {product['color']}\nram: {product['ram']}\nxotira: {product['memory']}\nnarxi: {product['price']}"
+        # reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_keyboards)
+    )
+
+    
