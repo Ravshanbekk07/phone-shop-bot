@@ -104,4 +104,4 @@ class DB:
         '''
         clear cart.
         '''
-        self.cart.remove(cond=(Query().user_id==user_id))
+        return self.cart.remove(cond=(Query().user_id==user_id))
