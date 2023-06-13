@@ -26,7 +26,9 @@ def test_add_phone():
 
 
 def test_add_user(chat_id: str, first_name: str, last_name: str, username: str):
-    db.add_user(chat_id=chat_id, first_name=first_name, last_name=last_name, username=username)
+   db.add_user(chat_id=chat_id, first_name=first_name, last_name=last_name, username=username)
+    
+
 
 
 def test_add_cart():
@@ -34,7 +36,7 @@ def test_add_cart():
 
 
 def test_remove_cart():
-    db.remove_cart(cart_id=4)
+    db.remove_cart(cart_id=5)
 
 def test_clear_cart():
     db.clear_cart("654367252")
@@ -45,4 +47,11 @@ def test_get_brends():
 def test_get_phone_by_brend(brend):
     print(db.get_phones_by_brend(brend))
 
-# test_get_phone_by_brend('Samsung')
+#test_get_phone_by_brend('Samsung')
+#test_get_brends()
+
+#test_add_user(151154545, 'Sarvar','Sarvar','sara')
+
+#test_clear_cart()
+#test_remove_cart()
+test_add_cart()
