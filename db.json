@@ -2297,7 +2297,65 @@
             "first_name": "Sarvar",
             "last_name": "Sarvar",
             "username": "sara"
+        },
+        "941780105": {
+            "first_name": "Ramazonov Ravshan",
+            "last_name": "Stranger070",
+            "username": null
         }
     },
-    "cart": {}
+    "cart": {
+        "1": {
+            "user_id": 941780105,
+            "phone_id": "223"
+        },
+        "2": {
+            "user_id": 941780105,
+            "phone_id": "230"
+        },
+        "3": {
+            "user_id": 941780105,
+            "phone_id": "28"
+        },
+        "4": {
+            "user_id": 941780105,
+            "phone_id": "25"
+        },
+        "5": {
+            "user_id": 941780105,
+            "phone_id": "112"
+        },
+        "6": {
+            "user_id": 941780105,
+            "phone_id": "183"
+        },
+        "7": {
+            "user_id": 941780105,
+            "phone_id": "221"
+        },
+        "8": {
+            "user_id": 941780105,
+            "phone_id": "138"
+        },
+        "9": {
+            "user_id": 941780105,
+            "phone_id": "177"
+        },
+        "10": {
+            "user_id": 941780105,
+            "phone_id": "25"
+        },
+        "11": {
+            "user_id": 941780105,
+            "phone_id": "252"
+        },
+        "12": {
+            "user_id": 941780105,
+            "phone_id": "182"
+        },
+        "13": {
+            "user_id": 941780105,
+            "phone_id": "20"
+        }
+    }
 }

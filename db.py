@@ -105,3 +105,9 @@ class DB:
         clear cart.
         '''
         return self.cart.remove(cond=(Query().user_id==user_id))
+    
+    def get_my_cart(self, user_id: str) -> bool:
+        '''
+        clear cart.
+        '''
+        return self.cart.search(cond=(Query().user_id==user_id))
