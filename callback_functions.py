@@ -45,8 +45,8 @@ def start(update: Update, context: CallbackContext) -> None:
 def brands(update: Update, context: CallbackContext):
     inline_keyboards = []
     for brend in db.get_brends():
-        btn = InlineKeyboardButton(text=brend, callback_data=f"brend:{brend}")
-        inline_keyboards.append([btn])
+        btns = InlineKeyboardButton(text=brend, callback_data=f"brend:{brend}")
+        inline_keyboards.append([btns])
    
     update.message.reply_text(
         text=f"bizda mavjud brendlar quyidagilar ⏬",
