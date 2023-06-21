@@ -49,6 +49,7 @@ def home():
 
 @app.route('/set-webhook/')
 def set_hook():
+
     r = bot.set_webhook("https://stanger.pythonanywhere.com/webhook/")
     return f'info:{r}'
 
