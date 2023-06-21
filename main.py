@@ -52,6 +52,6 @@ def home():
 @app.route('/set-webhook/')
 def set_hook():
     
-    r = bot.set_webhook(" https://phoneshoper.pythonanywhere.com/webhook/")
+    r = bot.set_webhook("https://phoneshoper.pythonanywhere.com/webhook/")
     return f'info:{r}'
 
