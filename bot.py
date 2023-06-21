@@ -12,11 +12,14 @@ from callback_functions import (
 )
 from telegram import Bot,Update
 from flask import Flask,request
+from db import DB
 
 app = Flask(__name__)
 
 TOKEN = os.environ.get('TOKEN')
 bot = Bot(TOKEN)
+
+db = DB(file_name='db.json')
 
 @app.route('/webhook/',methods = ['POST'])
 def main():
