@@ -1,4 +1,6 @@
 import os
+from flask import Flask,request
+
 from telegram.ext import (
     CommandHandler,
     MessageHandler, Filters,
@@ -11,7 +13,7 @@ from callback_functions import (
 
 )
 from telegram import Bot,Update
-from flask import Flask,request
+
 from db import DB
 
 app = Flask(__name__)
