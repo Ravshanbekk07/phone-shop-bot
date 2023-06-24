@@ -16,16 +16,7 @@ def start(update: Update, context: CallbackContext) -> None:
                 update.message.chat.first_name, update.message.chat.username)
     first_name = update.message.chat.first_name
 
-    # btn1= InlineKeyboardButton(text = "mavjud brendlar", callback_data="mavjud brendlar")
 
-    # inline_keyboard = [[btn1]]
-
-    # # get first name
-
-    # # send message with two buttons
-    # update.message.reply_html(
-    #     text=f"Hello, <b>{first_name}</b>. Xush Kelibsiz \n Bu-Telefon savdo \n Sahifani tanlang 👇🏼",
-    #     reply_markup=InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
 
     btn1 = KeyboardButton("📓mavjud brendlar")
     btn2 = KeyboardButton('🛒my cart')
@@ -36,11 +27,17 @@ def start(update: Update, context: CallbackContext) -> None:
                       [btn3, btn4],
 
                       ]
+    
 
     update.message.reply_html(
         text=f"Hello, <b>{first_name}</b>. Xush Kelibsiz \n Bu-Telefon savdo \n Sahifani tanlang 👇🏼",
         reply_markup=ReplyKeyboardMarkup(keyboard=reply_keyboard, resize_keyboard=True))
 
+  
+
+
+
+   
 
 def brands(update: Update, context: CallbackContext):
     inline_keyboards = []
